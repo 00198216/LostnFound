@@ -4,8 +4,8 @@
     <!-- Gradient usado para la Splash Screen -->
     <gradient
         android:angle="135"
-        android:centerColor="#66BB6A"
-        android:endColor="#80D8FF"
-        android:startColor="#80D8FF"
+        android:centerColor="#FFFFFF"
+        android:endColor="#9E9E9E"
+        android:startColor="#9E9E9E"
         android:type="linear" />
 </shape>
