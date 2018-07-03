@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splashscreen_color"
-    tools:context=".LostnFound_SplashScreen">
+    tools:context=".Activities.LostnFound_SplashScreen">
 
 
     <ImageView
