@@ -30,8 +30,10 @@
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="LostnFound"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity android:name=".Activities.Login"></activity>
     </application>
 
