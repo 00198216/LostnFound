@@ -14,4 +14,6 @@
     <string name="lost_n_found">Lost n Found</string>
     <string name="otras_opciones">Otras opciones</string>
     <string name="logout">Logout</string>
+    <string name="descripcion_del_objeto">Descripcion_del_objeto</string>
+    <string name="objeto">Objeto</string>
 </resources>
