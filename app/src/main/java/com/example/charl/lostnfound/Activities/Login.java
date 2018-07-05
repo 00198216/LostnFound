@@ -3,6 +3,7 @@ package com.example.charl.lostnfound.Activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +32,7 @@ public class Login extends AppCompatActivity {
     Button button;
     EditText User;
     EditText Pass;
+    TextView Reg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,9 @@ public class Login extends AppCompatActivity {
         button=findViewById(R.id.enviar);
         User = findViewById(R.id.email);
         Pass= findViewById(R.id.password);
+        Reg= findViewById(R.id.Register);
+
+        Reg.setPaintFlags(Reg.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

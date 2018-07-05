@@ -42,6 +42,10 @@ public class Lobjects {
     @ColumnInfo(name = "Mail") //Correo del Usuario
     private String correo;
 
+    //@NonNull Puede que este vacio y no es vital como la primary key
+    @ColumnInfo(name = "Version") //Correo del Usuario
+    private int __v;
+
     public Lobjects() {
     }
 
@@ -108,5 +112,13 @@ public class Lobjects {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public int get__v() {
+        return __v;
+    }
+
+    public void set__v(int __v) {
+        this.__v = __v;
     }
 }
