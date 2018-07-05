@@ -23,6 +23,6 @@ public interface LostnFoundAPI {
 
     //Metodo Get
     @GET("/ver/objeto")
-    Call<ArrayList<Lobjects>> getObjects(@Header("Authorization") String autorizazion);
-    //Llamamos el Plain Old Java Object de noticias.
+    Call<ArrayList<Lobjects>> getObjects(@Header("Authorization") String authorization);
+
 }

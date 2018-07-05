@@ -16,4 +16,7 @@
     <string name="logout">Logout</string>
     <string name="descripcion_del_objeto">Descripcion_del_objeto</string>
     <string name="objeto">Objeto</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -28,7 +28,6 @@ public class LostRepository {
     private LostDAO lostDao;  //El DAO
     private LiveData<List<Lobjects>> list;   // La lista donde recibiremos los datos
     private String UsrToken;
-    private String CurrentGame;
     private Context ctx;
     private Application app;
 
@@ -47,7 +46,7 @@ public class LostRepository {
         list= lostDao.getAllLost();
     }
 
-    public LiveData<List<Lobjects>> getAllNews(){
+    public LiveData<List<Lobjects>> getAllobjects(){
         return  list;
     }
 
@@ -95,7 +94,8 @@ public class LostRepository {
             LostnFoundAPI LostAPI = retrofit.create(LostnFoundAPI.class);
 
 
-            Call<ArrayList<Lobjects>> lostO = LostAPI.getObjects("Beared " + UsrToken);
+            Call<ArrayList<Lobjects>> lostO = LostAPI.getObjects("Bearer " + UsrToken);
+
             lostO.enqueue(new Callback<ArrayList<Lobjects>>() {
 
 
@@ -104,11 +104,10 @@ public class LostRepository {
                     if(response.isSuccessful()){
 
                         ArrayList<Lobjects> objects =(ArrayList<Lobjects>) response.body();
-                        //Collections.reverse(newz); // Por este medio le damos vuelta a la lista de mas nuevo a mas viejo.
                         new AsyncTaskI(lostDao).execute(objects);
 
                     }else {
-                        Toast.makeText(app,response.code()+""+" Token Vencido. Por favor iniciar seccion.",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(app,response.code()+""+" Secion vencida.",Toast.LENGTH_SHORT).show();
                         SharedPreferences SavedLogin = app.getSharedPreferences("LToken", Context.MODE_PRIVATE);;
                         SavedLogin.edit().clear().apply();
                         Intent intent = new Intent(app,Login.class);

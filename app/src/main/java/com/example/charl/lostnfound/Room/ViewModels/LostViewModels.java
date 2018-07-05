@@ -18,10 +18,14 @@ public class LostViewModels extends AndroidViewModel {
     public LostViewModels(@NonNull Application application){
         super(application);
         LostRep = new LostRepository(application);
-        list= LostRep.getAllNews();
+        list= LostRep.getAllobjects();
     }
 
     public LiveData<List<Lobjects>> getAllobjects(){
         return list;
+    }
+
+    public void consumirObjetos(){
+        LostRep.ConsumeObjects();
     }
 }
