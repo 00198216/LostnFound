@@ -30,7 +30,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LostRepository {
     private LostDAO lostDao;  //El DAO
     private LiveData<List<Lobjects>> list;   // La lista donde recibiremos los datos
+    private LiveData<List<Lobjects>> Ownlist;
     private String UsrToken;
+    private String User;
     private Context ctx;
     private Application app;
 
@@ -44,14 +46,18 @@ public class LostRepository {
         //Recuperando el Token
         SharedPreferences sharedPref = application.getSharedPreferences("LToken",Context.MODE_PRIVATE);
         UsrToken = sharedPref.getString("Token","");
+        User = sharedPref.getString("usuario","");
 
         ConsumeObjects();
         list= lostDao.getAllLost();
+        Ownlist= lostDao.getOwnLost(User);
     }
 
     public LiveData<List<Lobjects>> getAllobjects(){
         return  list;
     }
+
+    public LiveData<List<Lobjects>> getOwnlist(){return Ownlist;}
 
     public void ConsumeObjects(){
         new Consobj(UsrToken,lostDao,app).execute();

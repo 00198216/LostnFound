@@ -31,9 +31,10 @@
         <activity
             android:name=".Activities.MainActivity"
             android:label="LostnFound"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.Login" />
-        <activity android:name=".Cardviews.Cardview"></activity>
+        <activity android:name=".Cardviews.Cardview" />
+        <activity android:name=".Cardviews.CardviewUser"></activity>
     </application>
 
 </manifest>

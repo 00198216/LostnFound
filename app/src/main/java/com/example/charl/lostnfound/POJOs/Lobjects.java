@@ -39,8 +39,8 @@ public class Lobjects {
     private String usuario;
 
     //@NonNull Puede que este vacio y no es vital como la primary key
-    @ColumnInfo(name = "Mail") //Correo del Usuario
-    private String correo;
+    @ColumnInfo(name = "State") //Correo del Usuario
+    private Boolean recuperado;
 
     //@NonNull Puede que este vacio y no es vital como la primary key
     @ColumnInfo(name = "Version") //Correo del Usuario
@@ -106,12 +106,12 @@ public class Lobjects {
         this.usuario = usuario;
     }
 
-    public String getCorreo() {
-        return correo;
+    public Boolean getRecuperado() {
+        return recuperado;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setRecuperado(Boolean recuperado) {
+        this.recuperado = recuperado;
     }
 
     public int get__v() {

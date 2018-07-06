@@ -102,7 +102,7 @@ public class LostFragment extends Fragment {
 
 
         });
-
+        
 
         rv = vista.findViewById(R.id.recycler);
 

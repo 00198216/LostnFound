@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener , LostFragment.OnFragmentInteractionListener{
 
     private SharedPreferences SavedLogin;
+    public static Boolean flag = true;
 
 
     @Override
@@ -33,6 +34,19 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if(flag) {
+            //Para solo cargarlo una vez
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.content, new LostFragment()).commit();
+
+            SharedPreferences sharedPreferences = this.getSharedPreferences("State", Context.MODE_PRIVATE); //Inicializamos el SharedPreference
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("chosen","All");
+            editor.apply();
+
+            flag= false;
+        }
 
 
 
@@ -86,13 +100,17 @@ public class MainActivity extends AppCompatActivity
 
         boolean state =false;
 
+        SharedPreferences estado = getSharedPreferences("State", Context.MODE_PRIVATE);
+
 
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
             f= new LostFragment();
+            estado.edit().putString("State","All").apply();
 
             state= true;
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

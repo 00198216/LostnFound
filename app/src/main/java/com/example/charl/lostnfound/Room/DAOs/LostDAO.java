@@ -19,4 +19,7 @@ public interface LostDAO {
     @Query("SELECT * FROM Lost_Table ORDER BY Date DESC")
     LiveData<List<Lobjects>> getAllLost();  //Livedata permite que este objeto sea Observado.
 
+    @Query("SELECT * FROM Lost_Table WHERE Name = :CName")
+    LiveData<List<Lobjects>> getOwnLost(String CName);  //Livedata permite que este objeto sea Observado.
+
 }

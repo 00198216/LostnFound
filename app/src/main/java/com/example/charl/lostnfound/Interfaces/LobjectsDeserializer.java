@@ -25,7 +25,7 @@ public class LobjectsDeserializer implements JsonDeserializer<Lobjects> {
         Lost.setDireccion(jsonObject.get("direccion").getAsString());
         Lost.setFecha(jsonObject.get("fecha").getAsString());
         Lost.setUsuario(jsonObject.get("usuario").getAsString());
-        Lost.setCorreo(jsonObject.get("correo").getAsString());
+        Lost.setRecuperado(jsonObject.get("recuperado").getAsBoolean());
         Lost.set__v(jsonObject.get("__v").getAsInt());
 
         return Lost;

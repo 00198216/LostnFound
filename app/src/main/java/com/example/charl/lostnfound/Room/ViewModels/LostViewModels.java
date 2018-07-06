@@ -14,15 +14,21 @@ public class LostViewModels extends AndroidViewModel {
 
     private LostRepository LostRep;
     private LiveData<List<Lobjects>> list;
+    private LiveData<List<Lobjects>> Ownlist;
 
     public LostViewModels(@NonNull Application application){
         super(application);
         LostRep = new LostRepository(application);
         list= LostRep.getAllobjects();
+        Ownlist= LostRep.getAllobjects();
     }
 
     public LiveData<List<Lobjects>> getAllobjects(){
         return list;
+    }
+
+    public LiveData<List<Lobjects>> getOwnlist(){
+        return Ownlist;
     }
 
     public void consumirObjetos(){
