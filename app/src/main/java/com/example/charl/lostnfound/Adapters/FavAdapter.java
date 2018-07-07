@@ -11,17 +11,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.charl.lostnfound.POJOs.Lobjects;
+import com.example.charl.lostnfound.POJOs.LostFavorite;
 import com.example.charl.lostnfound.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class OwnLostAdapter extends RecyclerView.Adapter<OwnLostAdapter.OwnLostViewHolder> {
+public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavLostViewHolder> {
 
-public ArrayList<Lobjects> Lost; //Creamos un arrayList de objetos perdidos
+public ArrayList<LostFavorite> Lost; //Creamos un arrayList de objetos perdidos
         Context Contxt;
 
-public static class OwnLostViewHolder extends RecyclerView.ViewHolder {
+public static class FavLostViewHolder extends RecyclerView.ViewHolder {
     CardView card;
     TextView name;
     TextView Sname;
@@ -30,7 +31,7 @@ public static class OwnLostViewHolder extends RecyclerView.ViewHolder {
 
 
     //Donde inicializamos los objetos
-    public OwnLostViewHolder(View itemView) {
+    public FavLostViewHolder(View itemView) {
         super(itemView);
         cxt = itemView.getContext();
         card = itemView.findViewById(R.id.card_view2);
@@ -42,20 +43,20 @@ public static class OwnLostViewHolder extends RecyclerView.ViewHolder {
 
 }
 
-    public OwnLostAdapter(ArrayList<Lobjects> Lost, Context con) {
+    public FavAdapter(ArrayList<LostFavorite> Lost, Context con) {
         this.Lost = Lost;
         Contxt = con;
     }
 
     @NonNull
     @Override
-    public OwnLostAdapter.OwnLostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FavAdapter.FavLostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cardview_user, parent, false);
-        return (new OwnLostAdapter.OwnLostViewHolder(v));
+        return (new FavAdapter.FavLostViewHolder(v));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OwnLostAdapter.OwnLostViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull FavAdapter.FavLostViewHolder holder, final int position) {
         holder.name.setText(Lost.get(position).getNombre());//Holder para el nombre
         holder.Sname.setText(Lost.get(position).getDescripcion()); //Holder para el subtitulo
 

@@ -10,6 +10,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public interface LostnFoundAPI {
 
@@ -24,5 +25,6 @@ public interface LostnFoundAPI {
     //Metodo Get
     @GET("/ver/objeto")
     Call<ArrayList<Lobjects>> getObjects(@Header("Authorization") String authorization);
+
 
 }

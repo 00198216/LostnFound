@@ -20,7 +20,7 @@ public class LostViewModels extends AndroidViewModel {
         super(application);
         LostRep = new LostRepository(application);
         list= LostRep.getAllobjects();
-        Ownlist= LostRep.getAllobjects();
+        Ownlist= LostRep.getOwnlist();
     }
 
     public LiveData<List<Lobjects>> getAllobjects(){

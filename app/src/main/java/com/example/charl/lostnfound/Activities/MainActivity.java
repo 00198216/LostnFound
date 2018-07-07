@@ -118,6 +118,10 @@ public class MainActivity extends AppCompatActivity
             state= true;
 
         } else if (id == R.id.nav_slideshow) {
+            f= new LostFragment();
+            estado.edit().putString("chosen","Fav").apply();
+
+            state= true;
 
         } else if (id == R.id.nav_manage) {
 

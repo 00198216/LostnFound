@@ -22,4 +22,5 @@
     <string name="no_tienes_una_cuenta_registrate">No tienes una cuenta? Registrate!</string>
     <string name="objetos_perdidos">Objetos Perdidos</string>
     <string name="mis_objetos">Mis objetos</string>
+    <string name="favoritos">Favoritos</string>
 </resources>

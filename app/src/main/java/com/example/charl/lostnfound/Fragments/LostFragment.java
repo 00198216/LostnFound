@@ -16,10 +16,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.charl.lostnfound.Adapters.FavAdapter;
 import com.example.charl.lostnfound.Adapters.LostAdapter;
 import com.example.charl.lostnfound.Adapters.OwnLostAdapter;
 import com.example.charl.lostnfound.POJOs.Lobjects;
+import com.example.charl.lostnfound.POJOs.LostFavorite;
 import com.example.charl.lostnfound.R;
+import com.example.charl.lostnfound.Room.ViewModels.FavViewModels;
 import com.example.charl.lostnfound.Room.ViewModels.LostViewModels;
 
 import java.util.ArrayList;
@@ -43,7 +46,9 @@ public class LostFragment extends Fragment {
     RecyclerView rv;
     LostAdapter adapter;
     OwnLostAdapter adapter2;
+    FavAdapter adapter3;
     LostViewModels LViewModel;
+    FavViewModels FView;
     GridLayoutManager gManager;
     SwipeRefreshLayout Swipe;
     private String Choice;
@@ -151,7 +156,23 @@ public class LostFragment extends Fragment {
                     gManager = new GridLayoutManager(getActivity(), 2);
 
                     rv.setLayoutManager(gManager);
-                    rv.setAdapter(adapter);
+                    rv.setAdapter(adapter2);
+                }
+            });
+
+        }
+
+        if(Choice.contains("Fav")) {
+
+            FView = ViewModelProviders.of(this).get(FavViewModels.class);
+            FView.getFavList().observe(this, new Observer<List<LostFavorite>>() {
+                @Override
+                public void onChanged(@Nullable List<LostFavorite> news) {
+                    adapter3 = new FavAdapter((ArrayList<LostFavorite>) news, getContext());
+                    gManager = new GridLayoutManager(getActivity(), 2);
+
+                    rv.setLayoutManager(gManager);
+                    rv.setAdapter(adapter3);
                 }
             });
 

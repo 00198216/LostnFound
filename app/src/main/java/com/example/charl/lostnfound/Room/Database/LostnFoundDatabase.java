@@ -6,14 +6,17 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.example.charl.lostnfound.POJOs.Lobjects;
+import com.example.charl.lostnfound.POJOs.LostFavorite;
+import com.example.charl.lostnfound.Room.DAOs.FavDAO;
 import com.example.charl.lostnfound.Room.DAOs.LostDAO;
 
-@Database(entities = {Lobjects.class},exportSchema = false, version = 1)
+@Database(entities = {Lobjects.class, LostFavorite.class},exportSchema = false, version = 1)
 public abstract class LostnFoundDatabase extends RoomDatabase {
 
     private static LostnFoundDatabase INSTANCE;
 
     public abstract LostDAO lostDao();
+    public abstract FavDAO favDAO();
 
     public static LostnFoundDatabase getAppDataBase(Context context) {
         if (INSTANCE == null) {
