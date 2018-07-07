@@ -15,7 +15,7 @@ import java.util.List;
 public interface FavDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertLostFav(LostFavorite lost);
+    void insertLostFav(LostFavorite... lost);
 
     @Query("SELECT * FROM Favorite_Table WHERE FavUser = :CName")
     LiveData<List<LostFavorite>> getFavLost(String CName);  //Livedata permite que este objeto sea Observado.

@@ -44,7 +44,7 @@ public class LostFavorite {
     public LostFavorite() {
     }
 
-    public LostFavorite(String imagen, String nombre, String descripcion, String direccion, String fecha, String usuario, Boolean recuperado, String user) {
+    public LostFavorite(String _id, String imagen, String nombre, String descripcion, String direccion, String fecha, String usuario, Boolean recuperado, String user) {
         this._id = _id;
         this.imagen = imagen;
         this.nombre = nombre;

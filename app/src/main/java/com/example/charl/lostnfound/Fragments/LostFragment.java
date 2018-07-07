@@ -15,7 +15,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.charl.lostnfound.Activities.Login;
 import com.example.charl.lostnfound.Adapters.FavAdapter;
 import com.example.charl.lostnfound.Adapters.LostAdapter;
 import com.example.charl.lostnfound.Adapters.OwnLostAdapter;
@@ -154,6 +156,17 @@ public class LostFragment extends Fragment {
                 public void onChanged(@Nullable List<Lobjects> news) {
                     adapter2 = new OwnLostAdapter((ArrayList<Lobjects>) news, getContext());
                     gManager = new GridLayoutManager(getActivity(), 2);
+                    gManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                        @Override
+                        public int getSpanSize(int position) {
+                            if (position % 3 == 0) {
+                                return 2;
+                            } else {
+                                return 1;
+                            }
+                        }
+                    });
+
 
                     rv.setLayoutManager(gManager);
                     rv.setAdapter(adapter2);
@@ -163,7 +176,6 @@ public class LostFragment extends Fragment {
         }
 
         if(Choice.contains("Fav")) {
-
             FView = ViewModelProviders.of(this).get(FavViewModels.class);
             FView.getFavList().observe(this, new Observer<List<LostFavorite>>() {
                 @Override

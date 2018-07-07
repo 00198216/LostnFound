@@ -2,6 +2,7 @@ package com.example.charl.lostnfound.Adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
@@ -12,13 +13,16 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.charl.lostnfound.Activities.Login;
 import com.example.charl.lostnfound.POJOs.Lobjects;
 import com.example.charl.lostnfound.POJOs.LostFavorite;
 import com.example.charl.lostnfound.R;
 import com.example.charl.lostnfound.Room.DAOs.FavDAO;
 import com.example.charl.lostnfound.Room.DAOs.LostDAO;
 import com.example.charl.lostnfound.Room.Database.LostnFoundDatabase;
+import com.example.charl.lostnfound.Room.Repositories.LostRepository;
 import com.example.charl.lostnfound.Room.ViewModels.LostViewModels;
 import com.squareup.picasso.Picasso;
 
@@ -27,6 +31,8 @@ import java.util.ArrayList;
 public class LostAdapter extends RecyclerView.Adapter<LostAdapter.LostViewHolder> {
     public ArrayList<Lobjects> Lost; //Creamos un arrayList de objetos perdidos
     Context Contxt;
+
+
 
     public static class LostViewHolder extends RecyclerView.ViewHolder {
         CardView card;
@@ -51,6 +57,7 @@ public class LostAdapter extends RecyclerView.Adapter<LostAdapter.LostViewHolder
 
 
     }
+
 
     public LostAdapter(ArrayList<Lobjects> Lost, Context con) {
         this.Lost = Lost;
@@ -81,37 +88,49 @@ public class LostAdapter extends RecyclerView.Adapter<LostAdapter.LostViewHolder
             @Override
             public void onClick(View v) {
 
-                new Handler().postDelayed(new Runnable() { //Un Hilo
+                class AsyncTaskI extends AsyncTask<ArrayList<LostFavorite>, Void, Void> {
+
+                    private FavDAO lostDao;
+
+                    AsyncTaskI() {
+                    }
+
                     @Override
-                    public void run() {
-                        try {
-                            LostFavorite fav;
-                            SharedPreferences SavedLogin;
-                            String Name;
+                    protected Void doInBackground(ArrayList<LostFavorite>... arrayLists) {
+                        LostFavorite fav;
+                        SharedPreferences SavedLogin;
+                        String Name;
+                        LostnFoundDatabase db = LostnFoundDatabase.getAppDataBase(holder.cxt);
 
-                            LostnFoundDatabase db = LostnFoundDatabase.getAppDataBase(holder.cxt);
-                            SavedLogin = holder.cxt.getSharedPreferences("LToken", Context.MODE_PRIVATE);
-                            Name = SavedLogin.getString("usuario", "");
 
-                            if (!(Lost.get(position).getImagen() == null)) {
-                                fav = new LostFavorite(Lost.get(position).getImagen(), Lost.get(position).getNombre(), Lost.get(position).getDescripcion(), Lost.get(position).getDireccion(), Lost.get(position).getFecha(), Lost.get(position).getUsuario(), Lost.get(position).getRecuperado(), Name);
-                                FavDAO fave;
-                                fave = db.favDAO();
-                                fave.insertLostFav(fav);
-                            } else {
-                                fav = new LostFavorite(" ", Lost.get(position).getNombre(), Lost.get(position).getDescripcion(), Lost.get(position).getDireccion(), Lost.get(position).getFecha(), Lost.get(position).getUsuario(), Lost.get(position).getRecuperado(), Name);
-                                FavDAO fave;
-                                fave = db.favDAO();
-                                fave.insertLostFav(fav);
-                            }
-                        } catch (Exception e) {
+                        SavedLogin = holder.cxt.getSharedPreferences("LToken", Context.MODE_PRIVATE);
+                        Name = SavedLogin.getString("usuario", "");
+
+                        if (!(Lost.get(position).getImagen() == null)) {
+                            fav = new LostFavorite(Lost.get(position).get_id(),Lost.get(position).getImagen(), Lost.get(position).getNombre(), Lost.get(position).getDescripcion(), Lost.get(position).getDireccion(), Lost.get(position).getFecha(), Lost.get(position).getUsuario(), Lost.get(position).getRecuperado(), Name);
+                            FavDAO fave;
+                            fave = db.favDAO();
+                            fave.insertLostFav(fav);
+                        } else {
+                            fav = new LostFavorite(Lost.get(position).get_id()," ", Lost.get(position).getNombre(), Lost.get(position).getDescripcion(), Lost.get(position).getDireccion(), Lost.get(position).getFecha(), Lost.get(position).getUsuario(), Lost.get(position).getRecuperado(), Name);
+                            FavDAO fave;
+                            fave = db.favDAO();
+                            fave.insertLostFav(fav);
                         }
 
-                    }
-                },2000);
 
+                        return null;
+                    }
+
+
+                }
+                new AsyncTaskI().execute();
             }
+
+
+
         });
+
 
     }
 

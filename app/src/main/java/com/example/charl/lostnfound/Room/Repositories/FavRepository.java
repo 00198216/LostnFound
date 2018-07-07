@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 
 import com.example.charl.lostnfound.POJOs.Lobjects;
 import com.example.charl.lostnfound.POJOs.LostFavorite;
@@ -11,6 +12,7 @@ import com.example.charl.lostnfound.Room.DAOs.FavDAO;
 import com.example.charl.lostnfound.Room.DAOs.LostDAO;
 import com.example.charl.lostnfound.Room.Database.LostnFoundDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FavRepository {
@@ -35,6 +37,8 @@ public class FavRepository {
 
         Fablist= fDao.getFavLost(User);
     }
+
+
 
     public LiveData<List<LostFavorite>> getOwnlist(){return Fablist;}
 }
