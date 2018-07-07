@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.charl.lostnfound.Adapters.LostAdapter;
+import com.example.charl.lostnfound.Adapters.OwnLostAdapter;
 import com.example.charl.lostnfound.POJOs.Lobjects;
 import com.example.charl.lostnfound.R;
 import com.example.charl.lostnfound.Room.ViewModels.LostViewModels;
@@ -41,9 +42,11 @@ public class LostFragment extends Fragment {
     private String mParam2;
     RecyclerView rv;
     LostAdapter adapter;
+    OwnLostAdapter adapter2;
     LostViewModels LViewModel;
     GridLayoutManager gManager;
     SwipeRefreshLayout Swipe;
+    private String Choice;
 
 
     private OnFragmentInteractionListener mListener;
@@ -102,11 +105,16 @@ public class LostFragment extends Fragment {
 
 
         });
-        
+
+        SharedPreferences estado = getContext().getSharedPreferences("State", Context.MODE_PRIVATE);
+
+        Choice = estado.getString("chosen","");
+
+
 
         rv = vista.findViewById(R.id.recycler);
 
-
+        if(Choice.contains("All")) {
 
             LViewModel = ViewModelProviders.of(this).get(LostViewModels.class);
             LViewModel.getAllobjects().observe(this, new Observer<List<Lobjects>>() {
@@ -130,6 +138,24 @@ public class LostFragment extends Fragment {
                     rv.setAdapter(adapter);
                 }
             });
+
+        }
+
+        if(Choice.contains("Own")) {
+
+            LViewModel = ViewModelProviders.of(this).get(LostViewModels.class);
+            LViewModel.getOwnlist().observe(this, new Observer<List<Lobjects>>() {
+                @Override
+                public void onChanged(@Nullable List<Lobjects> news) {
+                    adapter2 = new OwnLostAdapter((ArrayList<Lobjects>) news, getContext());
+                    gManager = new GridLayoutManager(getActivity(), 2);
+
+                    rv.setLayoutManager(gManager);
+                    rv.setAdapter(adapter);
+                }
+            });
+
+        }
 
 
 

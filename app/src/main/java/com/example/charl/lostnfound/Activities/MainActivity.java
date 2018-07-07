@@ -107,11 +107,15 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             f= new LostFragment();
-            estado.edit().putString("State","All").apply();
+            estado.edit().putString("chosen","All").apply();
 
             state= true;
 
         } else if (id == R.id.nav_gallery) {
+            f= new LostFragment();
+            estado.edit().putString("chosen","Own").apply();
+
+            state= true;
 
         } else if (id == R.id.nav_slideshow) {
 
