@@ -23,4 +23,8 @@
     <string name="objetos_perdidos">Objetos Perdidos</string>
     <string name="mis_objetos">Mis objetos</string>
     <string name="favoritos">Favoritos</string>
+    <string name="nueva_cuenta">Nueva Cuenta</string>
+    <string name="correo_electronico">Correo Electronico</string>
+    <string name="nuevo_post">Nuevo post</string>
+    <string name="configuracion_de_cuenta">Configuracion de cuenta</string>
 </resources>

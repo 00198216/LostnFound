@@ -182,6 +182,16 @@ public class LostFragment extends Fragment {
                 public void onChanged(@Nullable List<LostFavorite> news) {
                     adapter3 = new FavAdapter((ArrayList<LostFavorite>) news, getContext());
                     gManager = new GridLayoutManager(getActivity(), 2);
+                    gManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                        @Override
+                        public int getSpanSize(int position) {
+                            if (position % 3 == 0) {
+                                return 2;
+                            } else {
+                                return 1;
+                            }
+                        }
+                    });
 
                     rv.setLayoutManager(gManager);
                     rv.setAdapter(adapter3);

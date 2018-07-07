@@ -22,6 +22,10 @@ public interface LostnFoundAPI {
     Call<String> login(@Field("user") String username, @Field("password") String password);
     //                 El field de usuario              El field de password       Ambos van en String.
 
+    @FormUrlEncoded
+    @POST("/actualizar/usuario/:id")
+    Call<String> register(@Field("user") String username, @Field("password") String password,@Field("correo") String mail);
+
     //Metodo Get
     @GET("/ver/objeto")
     Call<ArrayList<Lobjects>> getObjects(@Header("Authorization") String authorization);

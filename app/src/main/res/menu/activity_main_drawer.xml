@@ -18,8 +18,8 @@
             android:title="@string/favoritos" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:icon="@drawable/ic_add_circle_black_24dp"
+            android:title="@string/nuevo_post" />
     </group>
 
     <item android:title="@string/otras_opciones">
@@ -30,8 +30,8 @@
                 android:title="@string/logout" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:icon="@drawable/ic_vpn_key_black_24dp"
+                android:title="@string/configuracion_de_cuenta" />
         </menu>
     </item>
 

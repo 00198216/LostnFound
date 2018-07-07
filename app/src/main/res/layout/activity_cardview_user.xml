@@ -58,15 +58,6 @@
                 android:shadowColor="#000"/>
 
 
-            <CheckBox
-                android:id="@+id/star2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:attr/starStyle"
-                android:layout_weight="0.5"
-                android:checked="false"
-                />
-
             <ImageView
                 android:id="@+id/eliminate"
                 android:layout_marginTop="5dp"
