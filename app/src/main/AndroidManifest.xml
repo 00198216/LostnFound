@@ -12,10 +12,10 @@
 
     <application
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -37,7 +37,8 @@
         <activity android:name=".Cardviews.CardviewUser" />
         <activity android:name=".Activities.NewLogin" />
         <activity android:name=".Activities.MoreInfoO" />
-        <activity android:name=".Activities.ModifyUser"></activity>
+        <activity android:name=".Activities.ModifyUser" />
+        <activity android:name=".Activities.NewObject"></activity>
     </application>
 
 </manifest>

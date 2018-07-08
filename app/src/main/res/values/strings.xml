@@ -37,4 +37,7 @@
     <string name="actualizacion_de_cuenta">Actualizacion de Cuenta</string>
     <string name="actualizar_usuario">Actualizar Usuario</string>
     <string name="actualizar_cuenta">Actualizar Cuenta</string>
+    <string name="direccion1">Direccion</string>
+    <string name="lugar">lugar</string>
+    <string name="fecha_de_noticia">fecha_de_noticia</string>
 </resources>
