@@ -1,6 +1,8 @@
 package com.example.charl.lostnfound.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.charl.lostnfound.Activities.MoreInfoO;
 import com.example.charl.lostnfound.POJOs.Lobjects;
 import com.example.charl.lostnfound.R;
 import com.squareup.picasso.Picasso;
@@ -66,6 +69,41 @@ public static class OwnLostViewHolder extends RecyclerView.ViewHolder {
         } else {
             Picasso.with(holder.cxt).load(R.drawable.lost).error(R.drawable.lost).into(holder.img);
         }
+
+        holder.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(Contxt, MoreInfoO.class);
+                Bundle caja = new Bundle();
+                caja.putSerializable("info",Lost.get(position));
+                newIntent.putExtras(caja);
+                Contxt.startActivity(newIntent);
+            }
+        });
+
+
+        holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(Contxt, MoreInfoO.class);
+                Bundle caja = new Bundle();
+                caja.putSerializable("info", Lost.get(position));
+                newIntent.putExtras(caja);
+                Contxt.startActivity(newIntent);
+            }
+        });
+
+
+        holder.Sname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(Contxt, MoreInfoO.class);
+                Bundle caja = new Bundle();
+                caja.putSerializable("info",Lost.get(position));
+                newIntent.putExtras(caja);
+                Contxt.startActivity(newIntent);
+            }
+        });
 
     }
 

@@ -1,8 +1,10 @@
 package com.example.charl.lostnfound.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.charl.lostnfound.Activities.Login;
+import com.example.charl.lostnfound.Activities.MoreInfoO;
 import com.example.charl.lostnfound.POJOs.Lobjects;
 import com.example.charl.lostnfound.POJOs.LostFavorite;
 import com.example.charl.lostnfound.R;
@@ -83,6 +86,43 @@ public class LostAdapter extends RecyclerView.Adapter<LostAdapter.LostViewHolder
         } else {
             Picasso.with(holder.cxt).load(R.drawable.lost).error(R.drawable.lost).into(holder.img);
         }
+
+        holder.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(Contxt, MoreInfoO.class);
+                Bundle caja = new Bundle();
+                caja.putSerializable("info",Lost.get(position));
+                newIntent.putExtras(caja);
+                Contxt.startActivity(newIntent);
+            }
+        });
+
+        //En el titulo:
+
+        holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(Contxt, MoreInfoO.class);
+                Bundle caja = new Bundle();
+                caja.putSerializable("info", Lost.get(position));
+                newIntent.putExtras(caja);
+                Contxt.startActivity(newIntent);
+            }
+        });
+
+        //En el body:
+
+        holder.Sname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(Contxt, MoreInfoO.class);
+                Bundle caja = new Bundle();
+                caja.putSerializable("info",Lost.get(position));
+                newIntent.putExtras(caja);
+                Contxt.startActivity(newIntent);
+            }
+        });
 
         holder.star.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,8 +5,10 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
+
 @Entity(tableName = "Lost_Table") //El nombre que le daremos a nuestra tabla.
-public class Lobjects {
+public class Lobjects implements Serializable {
 
     @NonNull                   // Para evitar campos nulos
     @PrimaryKey

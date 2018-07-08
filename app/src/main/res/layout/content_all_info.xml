@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Activities.MoreInfoO"
+    tools:showIn="@layout/activity_more_info_o"
+    android:background="@drawable/splashscreen_color">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/Ntitulo"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#29B6F6"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <!--Letrero de fecha-->
+                <TextView
+                    android:background="#000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fecha"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="#fff"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/NFecha"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fecha_noticia"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="#29B6F6"
+                    android:textSize="18sp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:background="#000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/usuario"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="#fff"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+
+                <!--Juego de la noticia-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/NUser"
+                    android:layout_height="wrap_content"
+                    android:text="@string/usename"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="#29B6F6"
+                    android:textSize="18sp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--Letrero del Juego-->
+        <TextView
+            android:background="#000"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/usuario"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+
+        <!--Juego de la noticia-->
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/NLocal"
+            android:layout_height="wrap_content"
+            android:text="@string/usename"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#29B6F6"
+            android:textSize="18sp"
+            android:textAlignment="center"/>
+
+
+        <!--Descripcion de la noticia-->
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:id="@+id/NDesc"
+            android:layout_height="wrap_content"
+            android:text="@string/descripcion_objeto"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#29B6F6"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+
+
+
+    </LinearLayout>
+
+
+
+</android.support.v4.widget.NestedScrollView>

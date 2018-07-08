@@ -28,4 +28,10 @@
     <string name="nuevo_post">Nuevo post</string>
     <string name="configuracion_de_cuenta">Configuracion de cuenta</string>
     <string name="create_account">Create account</string>
+    <string name="titulo">Titulo</string>
+    <string name="fecha">Fecha</string>
+    <string name="fecha_noticia">Fecha noticia</string>
+    <string name="usuario">Usuario</string>
+    <string name="usename">Usename</string>
+    <string name="descripcion_objeto">Descripcion Objeto</string>
 </resources>
