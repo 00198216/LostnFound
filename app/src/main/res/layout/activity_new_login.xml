@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/correo_electronico"
-                android:inputType="textPassword"
+                android:inputType="textWebEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="#29B6F6"
@@ -82,7 +82,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/sign_in"
+            android:text="@string/create_account"
             android:textStyle="bold"
             android:textColor="#29B6F6"
             android:background="@drawable/button_color"/>

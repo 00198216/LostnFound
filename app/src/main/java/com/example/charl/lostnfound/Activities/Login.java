@@ -57,6 +57,14 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+
+        Reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), NewLogin.class);
+                startActivity(intent);
+            }
+        });
     }
 
     //Esta funcion se encargara de evaluar el tocken.
@@ -85,7 +93,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onFailure(Call<String> call, Throwable t) {   //Si la llamda falla
                 if(t instanceof SocketTimeoutException){
-                    Toast.makeText(Login.this,"false",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this,"Error de Conexion",Toast.LENGTH_SHORT).show();
                 }
             }
         });

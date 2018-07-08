@@ -61,31 +61,30 @@ public class NewLogin extends AppCompatActivity {
     }
 
     private void Register(){
-        Gson gson = new GsonBuilder().registerTypeAdapter(String.class, new TokenDeserializer()).create(); //Creamos el Gson por medio de Gson builder
-        Retrofit.Builder builder = new Retrofit.Builder().baseUrl(LostnFoundAPI.FINISH).addConverterFactory(GsonConverterFactory.create(gson)); //La creacion de el retrofit para sus uso.
-        Retrofit retrofit = builder.build(); //Inicializamos el Retrofit.
-        LostnFoundAPI Ln = retrofit.create(LostnFoundAPI.class); //Se manda la info a la API.
-        Users users = new Users(User.getText().toString(),Pass.getText().toString()); //Creamos un nuevo usuario.
-        Call<String> call= Ln.login(users.getUser(),users.getPassword()); //inicializamos Call
+        Gson gson = new GsonBuilder().registerTypeAdapter(String.class, new TokenDeserializer()).create();
+        Retrofit.Builder builder = new Retrofit.Builder().baseUrl(LostnFoundAPI.FINISH).addConverterFactory(GsonConverterFactory.create(gson));
+        Retrofit retrofit = builder.build();
+        LostnFoundAPI Ln = retrofit.create(LostnFoundAPI.class);
+        Users users = new Users(User.getText().toString(),Pass.getText().toString(),Mail.getText().toString());
+        Call<String> call= Ln.register(users.getUser(),users.getPassword(),users.getMail());
         call.enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) { //Si la llamada es exitosa
-                if(response.isSuccessful() && !response.body().equals("")){
-                    sharedpreferences(response.body(),User.getText().toString(),Pass.getText().toString());
-                    Toast.makeText(NewLogin.this,response.body(),Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            public void onResponse(Call<String> call, Response<String> response) {
+                if(response.isSuccessful() ){
+                    Toast.makeText(NewLogin.this,"Registrado con exito!",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), Login.class);
                     startActivity(intent);
                     finish();
                 }
                 else{
-                    Toast.makeText(NewLogin.this,"Usuario Erroneo",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewLogin.this,"Usuario Ya creado",Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {   //Si la llamda falla
                 if(t instanceof SocketTimeoutException){
-                    Toast.makeText(NewLogin.this,"false",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewLogin.this,"Error de conexion",Toast.LENGTH_SHORT).show();
                 }
             }
         });
