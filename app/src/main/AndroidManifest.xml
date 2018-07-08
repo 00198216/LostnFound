@@ -36,7 +36,8 @@
         <activity android:name=".Cardviews.Cardview" />
         <activity android:name=".Cardviews.CardviewUser" />
         <activity android:name=".Activities.NewLogin" />
-        <activity android:name=".Activities.MoreInfoO"></activity>
+        <activity android:name=".Activities.MoreInfoO" />
+        <activity android:name=".Activities.ModifyUser"></activity>
     </application>
 
 </manifest>

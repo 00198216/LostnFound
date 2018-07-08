@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!User.getText().toString().isEmpty() || !Pass.getText().toString().isEmpty()) {
+                if(!User.getText().toString().isEmpty() && !Pass.getText().toString().isEmpty()) {
                     FindToken();
                 }
                 else{

@@ -12,6 +12,7 @@ public class Users {
         private String user; //Username
         private String password; //Contraseña.
         private String correo;
+        private String actualizar;
 
         //Constructor
 
@@ -24,6 +25,13 @@ public class Users {
         this.user = user;
         this.password = password;
         this.correo = correo;
+    }
+
+    public Users(String user, String password, String correo, String actualizar) {
+        this.user = user;
+        this.password = password;
+        this.correo = correo;
+        this.actualizar = actualizar;
     }
 
     public String getToken() {
@@ -56,5 +64,21 @@ public class Users {
 
     public void setMail(String mail) {
         this.correo = mail;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getActualizar() {
+        return actualizar;
+    }
+
+    public void setActualizar(String actualizar) {
+        this.actualizar = actualizar;
     }
 }

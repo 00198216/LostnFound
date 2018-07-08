@@ -31,7 +31,7 @@
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_vpn_key_black_24dp"
-                android:title="@string/configuracion_de_cuenta" />
+                android:title="@string/actualizacion_de_cuenta" />
         </menu>
     </item>
 

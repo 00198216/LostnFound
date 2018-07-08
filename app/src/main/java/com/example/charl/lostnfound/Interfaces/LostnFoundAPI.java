@@ -30,4 +30,8 @@ public interface LostnFoundAPI {
     @GET("/ver/objeto")
     Call<ArrayList<Lobjects>> getObjects(@Header("Authorization") String authorization);
 
+    @FormUrlEncoded
+    @POST("/actualizar/usuario")
+    Call<String> update(@Header("Authorization") String authorization, @Field("user") String username, @Field("password") String password,@Field("correo") String mail,@Field("actualizar") String alter);
+
 }
