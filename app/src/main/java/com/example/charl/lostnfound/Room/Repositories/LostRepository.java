@@ -76,6 +76,7 @@ public class LostRepository {
             ArrayList<Lobjects> Not = arrayLists[0]; //Nos vamos a la posicion 0
             for(int e=0; e<Not.size(); e++){
                 Lobjects lost = Not.get(e); //Vamos una por una
+                lost.setImagen("https://proyectopdm2018.herokuapp.com/"+lost.getImagen().replace("uploads\\","uploads//"));
                 lostDao.insertLost(lost);
             }
             return null;
