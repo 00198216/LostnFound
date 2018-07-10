@@ -34,4 +34,10 @@ public interface LostnFoundAPI {
     @PUT("/actualizar/usuario")
     Call<String> update(@Header("Authorization") String authorization, @Field("user") String username, @Field("password") String password,@Field("correo") String mail,@Field("actualizar") String alter);
 
+    @FormUrlEncoded
+    @POST("/nuevo/objeto")
+    Call<String> add(@Header("Authorization") String authorization, @Field("imagen") String img, @Field("nombre") String name,@Field("descripcion") String desc,@Field("direccion") String dir,@Field("usuario") String usr,@Field("correo") String mail);
+
+
+
 }

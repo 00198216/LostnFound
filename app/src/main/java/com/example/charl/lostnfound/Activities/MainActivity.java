@@ -120,6 +120,8 @@ public class MainActivity extends AppCompatActivity
             state= true;
 
         } else if (id == R.id.nav_manage) {
+            Intent intent = new Intent(getApplicationContext(), NewObject.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_share) {
             SavedLogin = getSharedPreferences("LToken", Context.MODE_PRIVATE);

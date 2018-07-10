@@ -7,6 +7,16 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activities.MainActivity"
     tools:showIn="@layout/app_bar_main"
+    android:background="@drawable/splashscreen_color"
     android:id="@+id/content">
+
+    <ImageView
+        android:id="@+id/LogoSS"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:src="@drawable/logo2" />
 
 </android.support.constraint.ConstraintLayout>

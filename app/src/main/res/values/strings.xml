@@ -40,4 +40,11 @@
     <string name="direccion1">Direccion</string>
     <string name="lugar">lugar</string>
     <string name="fecha_de_noticia">fecha_de_noticia</string>
+    <string name="fecha2">Fecha</string>
+    <string name="usuario2">Usuario</string>
+    <string name="direccion2">Direccion</string>
+    <string name="direccioninfo">Direccion</string>
+    <string name="newdescripcion">Descripcion</string>
+    <string name="newtitulo">Titulo</string>
+    <string name="crear_noticia">Crear Noticia</string>
 </resources>

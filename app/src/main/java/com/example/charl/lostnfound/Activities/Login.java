@@ -80,7 +80,6 @@ public class Login extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) { //Si la llamada es exitosa
                 if(response.isSuccessful() && !response.body().equals("")){
                     sharedpreferences(response.body(),User.getText().toString(),Pass.getText().toString());
-                    Toast.makeText(Login.this,response.body(),Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();

@@ -1,155 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Activities.MoreInfoO"
-    tools:showIn="@layout/activity_more_info_o"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.NewObject"
+    android:fitsSystemWindows="true"
     android:background="@drawable/splashscreen_color">
 
-
-
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/AppB2"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="250dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <TextView
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/ToolB2"
             android:layout_width="match_parent"
-            android:id="@+id/Ntitulo"
-            android:layout_height="wrap_content"
-            android:text="@string/titulo"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="#29B6F6"
-            android:textSize="27sp"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-
-                <!--Letrero de fecha-->
-                <TextView
-                    android:background="#000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fecha"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textColor="#fff"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"/>
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            android:gravity="center_vertical"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
 
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/ImgV2"
+                android:src="@drawable/lost"
+                android:layout_height="match_parent" />
 
-                    <EditText
-                        android:id="@+id/ObjDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/fecha_de_noticia"
-                        android:inputType="date"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="#29B6F6"
-                        android:textColorHint="#29B6F6"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
 
-                </android.support.design.widget.TextInputLayout>
+    <include layout="@layout/content_new_object"/>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:background="#000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/usuario"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textColor="#fff"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"/>
-
-                <!--Juego de la noticia-->
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="#29B6F6"
-                        android:textColorHint="#29B6F6"/>
-
-                </android.support.design.widget.TextInputLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!--Letrero del Juego-->
-        <TextView
-            android:background="#000"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/usuario"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="#fff"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
-
-        <!--Juego de la noticia-->
-        <TextView
-            android:layout_width="match_parent"
-            android:id="@+id/NLocal"
-            android:layout_height="wrap_content"
-            android:text="@string/usename"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="#29B6F6"
-            android:textSize="18sp"
-            android:textAlignment="center"/>
-
-
-        <!--Descripcion de la noticia-->
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:id="@+id/NDesc"
-            android:layout_height="wrap_content"
-            android:text="@string/descripcion_objeto"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="#29B6F6"
-            android:textSize="20sp"
-            android:textAlignment="center"/>
-
-
-
-    </LinearLayout>
-
-
-
-
-</android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
