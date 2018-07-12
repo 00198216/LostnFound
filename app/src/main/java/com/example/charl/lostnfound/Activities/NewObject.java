@@ -53,7 +53,7 @@ public class NewObject extends AppCompatActivity {
         date = findViewById(R.id.ObjDate);
         Location = findViewById(R.id.ObjDir);
         but = findViewById(R.id.CreateObj);
-        
+
 
         SharedPreferences sharedPref = NewObject.this.getSharedPreferences("LToken", Context.MODE_PRIVATE);
         UsrToken = sharedPref.getString("Token","");
